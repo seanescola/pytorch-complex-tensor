@@ -33,9 +33,9 @@ class ComplexGrad(torch.Tensor):
 
     def __repr__(self):
         size = self.size()
-        split_i = size[0] // 2
-        real = self[:split_i]
-        imag = self[split_i:]
+        split_i = size[-2] // 2
+        real = self[..., :split_i, :]
+        imag = self[..., split_i:, :]
         size_r = real.size()
 
         real = real.view(-1)
