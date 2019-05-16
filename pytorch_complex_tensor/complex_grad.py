@@ -37,7 +37,6 @@ class ComplexGrad(torch.Tensor):
         real = self[..., :split_i, :]
         imag = self[..., split_i:, :]
         size_r = real.size()
-        # print(size_r)
 
         real = real.reshape(-1)
         imag = imag.reshape(-1)
