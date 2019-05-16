@@ -37,10 +37,10 @@ class ComplexGrad(torch.Tensor):
         real = self[..., :split_i, :]
         imag = self[..., split_i:, :]
         size_r = real.size()
-        print(size_r)
+        # print(size_r)
 
-        real = real.view(-1)
-        imag = imag.view(-1)
+        real = real.reshape(-1)
+        imag = imag.reshape(-1)
 
         strings = np.asarray([f'({a}{"+" if b > 0 else "-"}{abs(b)}j)' for a, b in zip(real, imag)])
         strings = strings.reshape(*size_r)
